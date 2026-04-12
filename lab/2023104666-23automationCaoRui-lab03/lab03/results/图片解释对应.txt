@@ -1,0 +1,13 @@
+results/图片详细
+1_original.png         原图
+2_down_1_2.png        1/2 下采样
+3_down_1_4.png        1/4 下采样
+4_restore_1_2...      1/2 恢复
+5_restore_1_4...      1/4 恢复
+6_fft_original        FFT原图
+7_fft_down_1_2        FFT下采样
+8_fft_restore         FFT恢复图
+9_dct_original        DCT原图
+10_dct_bilinear       DCT双线性
+11_dct_bicubic        DCT双三次
+12_summary.png        汇总对比图

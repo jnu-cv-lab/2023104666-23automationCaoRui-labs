@@ -1,0 +1,48 @@
+方式一：使用 g++ 命令行直接编译（适合简单项目）
+假设拆分出了：
+main.cpp（主函数）
+image_utils.cpp（图像处理函数实现）
+image_utils.hpp（头文件声明）
+1. 编译命令
+在终端进入项目目录，执行：
+g++ -std=c++11 main.cpp image_utils.cpp -o lab02 `pkg-config --cflags --libs opencv4`
+
+-std=c++11：指定 C++11 标准（OpenCV 推荐）
+main.cpp image_utils.cpp：列出所有需要编译的源文件
+-o lab02：指定生成的可执行文件名
+`pkg-config --cflags --libs opencv4`：自动引入 OpenCV 的头文件路径和链接库
+
+2. 运行程序
+./lab02  # Linux
+lab02.exe  # Windows（MinGW）
+
+方式二：使用 Makefile 自动化编译（适合多文件项目）
+在项目根目录创建 Makefile 文件，内容如下：
+makefile
+# 编译器
+CXX = g++
+# C++ 标准
+CXXFLAGS = -std=c++11
+# OpenCV 依赖（通过 pkg-config 自动获取）
+OPENCV_FLAGS = `pkg-config --cflags --libs opencv4`
+# 目标可执行文件
+TARGET = lab02
+# 所有源文件
+SRCS = lab02.cpp  # 或 main.cpp image_utils.cpp ...
+# 编译规则
+$(TARGET): $(SRCS)
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET) $(OPENCV_FLAGS)
+# 清理规则
+clean:
+	rm -f $(TARGET)
+
+1. 编译
+终端执行：
+make
+会自动根据 Makefile 编译所有源文件，生成 lab02 可执行文件。
+
+2. 运行
+./lab02
+
+3. 清理编译产物
+make clean
