@@ -57,8 +57,13 @@
 ## 四、文件结构
 
 lab05/
+
 ├── main.py # 完整实验主程序
-├── test_geo.png # 几何测试原图
+
+├── test_geo.jpg # 几何测试原图
+
 ├── perspective_distort.jpg # 实拍畸变 A4 原图
+
 ├── results/ # 全部中文命名实验结果图
+
 └── lab05实验报告.md # 实验报告
