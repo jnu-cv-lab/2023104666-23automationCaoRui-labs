@@ -1,0 +1,2 @@
+Predicted class: forehand_lift
+Confidence: 0.6607
